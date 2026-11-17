@@ -1,0 +1,12 @@
+<<<<<<< Updated upstream
+-c constraints.txt
+streamlit~=1.66.1
+pandas~=2.3.3
+=======
+databricks-sdk>=0.89.0
+databricks-sql-connector>=3.4.0
+pg8000>=1.30.0
+plotly>=5.20.0
+pandas
+pyarrow
+>>>>>>> Stashed changes

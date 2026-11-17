@@ -1,0 +1,24 @@
+# Databricks Apps runtime configuration.
+# `valueFrom` reads a value from an app RESOURCE (added in the app's settings), so no ids or secrets live in code.
+# If your template's app.yaml used a different `command`, keep that one.
+command: ["streamlit", "run", "app.py"]
+
+env:
+  - name: DATABRICKS_WAREHOUSE_ID     # SQL warehouse resource (key: sql-warehouse)
+    valueFrom: sql-warehouse
+  - name: AGENT_ENDPOINT              # serving endpoint resource (key: serving-endpoint) = your deployed agent
+    valueFrom: serving-endpoint
+  - name: LAKEBASE_ENDPOINT           # Lakebase (postgres) resource (key: postgres)
+    valueFrom: postgres
+
+  # Plain settings (change only if your names differ)
+  - name: GRIDWATCH_CATALOG
+    value: uc_grid_sensor
+  - name: GRIDWATCH_GOLD_SCHEMA
+    value: grid_gold
+  - name: GRIDWATCH_SILVER_SCHEMA
+    value: grid_silver
+  - name: LAKEBASE_ALERTS_TABLE
+    value: critical_grid_alerts
+  - name: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+    value: "false"
